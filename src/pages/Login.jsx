@@ -42,36 +42,37 @@ class Login extends Component {
 
   render() {
     const { inputName, buttonIsDisabled, isLoading, redirectToSearch } = this.state;
+    const form = (
+      <div data-testid="page-login" className="login">
+        <h1>Login</h1>
+        <form>
+          <label htmlFor="name">
+            <input
+              name="inputName"
+              type="name"
+              data-testid="login-name-input"
+              onChange={ this.handleChange }
+              value={ inputName }
+            />
+          </label>
+          <button
+            type="button"
+            data-testid="login-submit-button"
+            onClick={ this.pushEnter }
+            disabled={ buttonIsDisabled }
+          >
+            Entrar
+          </button>
+        </form>
+      </div>
+    );
+
     return (
       <div>
-        <div data-testid="page-login" className="login">
-          <h1>Login</h1>
-          <form>
-            <label htmlFor="name">
-              <input
-                name="inputName"
-                type="name"
-                data-testid="login-name-input"
-                onChange={ this.handleChange }
-                value={ inputName }
-              />
-            </label>
-            <button
-              type="button"
-              data-testid="login-submit-button"
-              onClick={ this.pushEnter }
-              disabled={ buttonIsDisabled }
-            >
-              Entrar
-            </button>
-          </form>
-          {
-            isLoading && <Loading />
-          }
-          {
-            redirectToSearch && <Redirect to="/search" />
-          }
-        </div>
+        { isLoading ? <Loading /> : form }
+        {
+          redirectToSearch && <Redirect to="/search" />
+        }
       </div>
     );
   }

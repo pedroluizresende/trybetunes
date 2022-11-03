@@ -11,7 +11,7 @@ class Header extends Component {
 
   async componentDidMount() {
     const usrName = await this.fetchName();
-    console.log(usrName);
+
     this.setState({
       userName: usrName,
       completedRequisition: true,
@@ -20,7 +20,6 @@ class Header extends Component {
 
   fetchName = async () => {
     const name = await getUser();
-    console.log(name.name);
     return name.name;
   };
 
@@ -31,7 +30,9 @@ class Header extends Component {
         { completedRequisition ? <h1 data-testid="header-user-name">{ userName }</h1>
           : <Loading /> }
         <nav>
-          <Link to="/search" data-testid="link-to-search">Search</Link>
+          <Link to="/search" data-testid="link-to-search">Pesquisa</Link>
+          <Link to="/favorites" data-testid="link-to-favorites">Favoritos</Link>
+          <Link to="/profile" data-testid="link-to-profile">Perfil</Link>
         </nav>
       </header>
     );
