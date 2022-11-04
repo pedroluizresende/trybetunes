@@ -4,12 +4,13 @@ import Header from './Header';
 import getMusics from '../services/musicsAPI';
 import Loading from './Loading';
 import MusicCard from '../components/MusicCard';
+import { addSong } from '../services/favoriteSongsAPI';
 
 class Album extends Component {
   state = {
     musics: [],
     albumInfo: {},
-    requestIsDone: false,
+    requestIsDone: true,
   };
 
   componentDidMount() {
@@ -26,7 +27,7 @@ class Album extends Component {
       } } = this.props;
 
     const allInfos = await getMusics(id);
-    const albumMusics = allInfos.filter((info) => info.wrapperType !== 'collection');
+    const albumMusics = allInfos.filter((info) => info.trackName);
     this.setState({
       albumInfo: allInfos[0],
       musics: albumMusics,
@@ -34,8 +35,20 @@ class Album extends Component {
     });
   };
 
+  clickChange = async (song) => {
+    console.log('func', song);
+    this.setState({
+      requestIsDone: false,
+    });
+    await addSong(song);
+    this.setState({
+      requestIsDone: true,
+    });
+  };
+
   render() {
     const { albumInfo, musics, requestIsDone } = this.state;
+    // console.log('musics', musics);
     const albumInfos = (
       <section>
         <h1 data-testid="album-name">{ albumInfo.collectionName }</h1>
@@ -45,15 +58,14 @@ class Album extends Component {
             musics.map((music) => (
               <MusicCard
                 key={ music.trackId }
-                trackName={ music.trackName }
-                previewUrl={ music.previewUrl }
+                music={ music }
+                clickChange={ this.clickChange }
               />
             ))
           }
         </ul>
       </section>
     );
-    console.log(musics);
     return (
       <div>
         <div data-testid="page-album" className="album">
