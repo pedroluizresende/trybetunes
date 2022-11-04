@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { createUser } from '../services/userAPI';
 import Loading from './Loading';
+import logo from '../images/logo.png';
 
 class Login extends Component {
   state = {
@@ -44,7 +45,7 @@ class Login extends Component {
     const { inputName, buttonIsDisabled, isLoading, redirectToSearch } = this.state;
     const form = (
       <div data-testid="page-login" className="login">
-        <h1>Login</h1>
+        <img src={ logo } alt="logo trybeTunes" />
         <form>
           <label htmlFor="name">
             <input
@@ -53,6 +54,7 @@ class Login extends Component {
               data-testid="login-name-input"
               onChange={ this.handleChange }
               value={ inputName }
+              placeholder="qual é o seu nome?"
             />
           </label>
           <button
@@ -68,7 +70,7 @@ class Login extends Component {
     );
 
     return (
-      <div>
+      <div className="login-page">
         { isLoading ? <Loading /> : form }
         {
           redirectToSearch && <Redirect to="/search" />
