@@ -23,7 +23,6 @@ class MusicCard extends Component {
       music,
       clickChange,
     } = this.props;
-
     const {
       trackName,
       previewUrl,
@@ -48,6 +47,7 @@ class MusicCard extends Component {
             onChange={ clickChange }
             checked={ isFavorite }
           />
+          Favorita
         </label>
       </div>
     );
@@ -58,7 +58,7 @@ MusicCard.propTypes = {
   music: PropTypes.shape({
     trackName: PropTypes.string.isRequired,
     previewUrl: PropTypes.string.isRequired,
-    trackId: PropTypes.number.isRequired,
+    trackId: PropTypes.string.isRequired,
   }).isRequired,
   clickChange: PropTypes.func.isRequired,
   favorite: PropTypes.bool.isRequired,

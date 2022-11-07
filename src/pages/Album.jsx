@@ -71,7 +71,7 @@ class Album extends Component {
   };
 
   render() {
-    const { albumInfo, musics, requestIsDone, isChecked, favoriteSongs } = this.state;
+    const { albumInfo, musics, requestIsDone, favoriteSongs } = this.state;
     const albumInfos = (
       <section className="album-content">
         <section className="album-info">
@@ -86,7 +86,6 @@ class Album extends Component {
                 key={ music.trackId }
                 music={ music }
                 clickChange={ this.clickChange }
-                isChecked={ isChecked }
                 favoriteSongs={ favoriteSongs }
                 favorite={ favoriteSongs
                   .some((song) => song.trackId === music.trackId) }
