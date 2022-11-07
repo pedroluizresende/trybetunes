@@ -4,18 +4,31 @@ import Header from './Header';
 import getMusics from '../services/musicsAPI';
 import Loading from './Loading';
 import MusicCard from '../components/MusicCard';
-import { addSong } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
 
 class Album extends Component {
   state = {
     musics: [],
     albumInfo: {},
     requestIsDone: true,
+    favoriteSongs: [],
   };
 
   componentDidMount() {
     this.fetchMusics();
+    this.getFavoriteSongs();
   }
+
+  getFavoriteSongs = async () => {
+    this.setState({
+      requestIsDone: false,
+    });
+    const favoriteSongs = await getFavoriteSongs();
+    this.setState({
+      favoriteSongs,
+      requestIsDone: true,
+    });
+  };
 
   fetchMusics = async () => {
     this.setState({
@@ -31,28 +44,32 @@ class Album extends Component {
     this.setState({
       albumInfo: allInfos[0],
       musics: albumMusics,
-      requestIsDone: true,
     });
   };
 
-  clickChange = async (song) => {
-    console.log('func', song);
+  clickChange = async ({ target }) => {
+    const { musics } = this.state;
+    const song = musics.find((music) => music.trackId === (+target.name));
     this.setState({
       requestIsDone: false,
     });
     await addSong(song);
+    const favoriteSongs = await getFavoriteSongs();
     this.setState({
       requestIsDone: true,
+      favoriteSongs,
     });
   };
 
   render() {
-    const { albumInfo, musics, requestIsDone } = this.state;
-    // console.log('musics', musics);
+    const { albumInfo, musics, requestIsDone, isChecked, favoriteSongs } = this.state;
     const albumInfos = (
-      <section>
-        <h1 data-testid="album-name">{ albumInfo.collectionName }</h1>
-        <h2 data-testid="artist-name">{ albumInfo.artistName }</h2>
+      <section className="album-content">
+        <section className="album-info">
+          <img src={ albumInfo.artworkUrl100 } alt="" />
+          <h1 data-testid="album-name">{ albumInfo.collectionName }</h1>
+          <h2 data-testid="artist-name">{ albumInfo.artistName }</h2>
+        </section>
         <ul>
           {
             musics.map((music) => (
@@ -60,6 +77,10 @@ class Album extends Component {
                 key={ music.trackId }
                 music={ music }
                 clickChange={ this.clickChange }
+                isChecked={ isChecked }
+                favoriteSongs={ favoriteSongs }
+                favorite={ favoriteSongs
+                  .some((song) => song.trackId === music.trackId) }
               />
             ))
           }
@@ -67,17 +88,16 @@ class Album extends Component {
       </section>
     );
     return (
-      <div>
-        <div data-testid="page-album" className="album">
-          <Header />
 
-          {
-            !requestIsDone
-              ? <Loading />
-              : albumInfos
-          }
-        </div>
+      <div data-testid="page-album" className="album">
+        <Header />
+        {
+          !requestIsDone
+            ? <Loading />
+            : albumInfos
+        }
       </div>
+
     );
   }
 }

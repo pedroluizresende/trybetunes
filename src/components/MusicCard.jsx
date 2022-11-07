@@ -2,7 +2,23 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class MusicCard extends Component {
+  state = {
+    isFavorite: false,
+  };
+
+  componentDidMount() {
+    this.setFavorite();
+  }
+
+  setFavorite = () => {
+    const { favorite } = this.props;
+    this.setState({
+      isFavorite: favorite,
+    });
+  };
+
   render() {
+    const { isFavorite } = this.state;
     const {
       music,
       clickChange,
@@ -13,7 +29,6 @@ class MusicCard extends Component {
       previewUrl,
       trackId,
     } = music;
-
     return (
       <div className="music-card">
         <p>{ trackName }</p>
@@ -27,9 +42,11 @@ class MusicCard extends Component {
         <label htmlFor="checkbox-music">
           <input
             id="checkbox-music"
+            name={ trackId }
             type="checkbox"
             data-testid={ `checkbox-music-${trackId}` }
-            onChange={ () => clickChange(music) }
+            onChange={ clickChange }
+            checked={ isFavorite }
           />
         </label>
       </div>
@@ -44,6 +61,7 @@ MusicCard.propTypes = {
     trackId: PropTypes.number.isRequired,
   }).isRequired,
   clickChange: PropTypes.func.isRequired,
+  favorite: PropTypes.bool.isRequired,
 };
 
 export default MusicCard;

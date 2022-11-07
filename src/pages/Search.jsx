@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from './Header';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
-import CardAlbum from '../CardAlbum';
+import CardAlbum from '../components/CardAlbum';
 
 class Search extends Component {
   state = {

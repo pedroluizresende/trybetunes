@@ -2,6 +2,7 @@
   align-items: center;
   background-size: cover;
   display: flex;
+  height: 100%;
   justify-content: center;
   width: 100%;
 }
@@ -75,7 +76,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  text-align: center;
 }
 
 @keyframes loading {
@@ -104,14 +104,27 @@
   width: 322px;
 }
 
-.login-page {
-  margin-top: 250px;
-}
-
-.login-page .loading {
-  margin-top: 150px;
-}
-
-.album-content {
+header {
+  align-items: center;
+  background-color: lightgray;
   display: flex;
+  height: 100px;
+  justify-content: center;
+  width: 100%;
+}
+
+.album {
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  height: 960px;
+  width: 100%;
+}
+
+.serch {
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  height: 960px;
+  width: 100%;
 }
