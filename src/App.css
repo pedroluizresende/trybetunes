@@ -105,26 +105,5 @@
 }
 
 header {
-  align-items: center;
-  background-color: lightgray;
-  display: flex;
-  height: 100px;
-  justify-content: center;
-  width: 100%;
-}
-
-.album {
   border: 1px solid red;
-  display: flex;
-  flex-direction: column;
-  height: 960px;
-  width: 100%;
-}
-
-.serch {
-  border: 1px solid red;
-  display: flex;
-  flex-direction: column;
-  height: 960px;
-  width: 100%;
 }
