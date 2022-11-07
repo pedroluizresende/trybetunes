@@ -2,9 +2,10 @@
   align-items: center;
   background-size: cover;
   display: flex;
-  height: 100%;
+  height: 948px;
   justify-content: center;
-  width: 100%;
+  width: 1862px;
+  border: 1px solid green;
 }
 
 .login {
@@ -104,6 +105,21 @@
   width: 322px;
 }
 
+.search {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
 header {
-  border: 1px solid red;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 19.53%;
+}
+
+header img {
+  height: 95.71px;
+  width: 170.81px;
 }

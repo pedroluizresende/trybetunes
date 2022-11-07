@@ -30,6 +30,8 @@ class ProfileEdit extends Component {
       userImage: user.image,
       userDescription: user.description,
       requestIsDone: true,
+    }, () => {
+      this.validateButton();
     });
   };
 
@@ -67,6 +69,7 @@ class ProfileEdit extends Component {
     await updateUser(userInfo);
     this.setState({
       isSalved: true,
+      requestIsDone: true,
     });
   };
 
