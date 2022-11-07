@@ -5,7 +5,6 @@
   height: 948px;
   justify-content: center;
   width: 1862px;
-  border: 1px solid green;
 }
 
 .login {
@@ -117,9 +116,4 @@ header {
   flex-direction: column;
   height: 100%;
   width: 19.53%;
-}
-
-header img {
-  height: 95.71px;
-  width: 170.81px;
 }
