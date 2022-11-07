@@ -58,7 +58,7 @@ MusicCard.propTypes = {
   music: PropTypes.shape({
     trackName: PropTypes.string.isRequired,
     previewUrl: PropTypes.string.isRequired,
-    trackId: PropTypes.string.isRequired,
+    trackId: PropTypes.number.isRequired,
   }).isRequired,
   clickChange: PropTypes.func.isRequired,
   favorite: PropTypes.bool.isRequired,
