@@ -17,7 +17,7 @@ class CardAlbum extends Component {
     return (
       <div className={ styles.card }>
         <Link
-          to={ `trybetunes/album/${collectionId}` }
+          to={ `/trybetunes/album/${collectionId}` }
           data-testid={ `link-to-album-${collectionId}` }
         >
           <img src={ albumImg } alt={ albumName } />

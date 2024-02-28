@@ -37,7 +37,7 @@ class Header extends Component {
 
         <nav>
           <Link
-            to="trybetunes/search"
+            to="/trybetunes/search"
             data-testid="link-to-search"
             className={ curPage === '/search' ? styles.active : '' }
           >
@@ -47,7 +47,7 @@ class Header extends Component {
             </p>
           </Link>
           <Link
-            to="trybetunes/favorites"
+            to="/trybetunes/favorites"
             data-testid="link-to-favorites"
             className={ curPage === '/favorites' ? styles.active : '' }
           >
@@ -57,7 +57,7 @@ class Header extends Component {
             </p>
           </Link>
           <Link
-            to="trybetunes/profile"
+            to="/trybetunes/profile"
             data-testid="link-to-profile"
             className={ curPage === '/profile' ? styles.active : '' }
           >

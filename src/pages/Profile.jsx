@@ -86,7 +86,7 @@ class Profile extends Component {
                     <h3>Descrição:</h3>
                     <p>{ userDescription }</p>
                   </div>
-                  <Link to="/profile/edit">Editar perfil</Link>
+                  <Link to="/tribetunes/profile/edit">Editar perfil</Link>
                 </section>
               )
             }

@@ -14,7 +14,7 @@ class App extends React.Component {
     return (
       <div className={ styles.app }>
         <Switch>
-          <Route exact path="/trybetunes" component={ Login } />
+          <Route exact path="/trybetunes/" component={ Login } />
           <Route exact path="/trybetunes/search" component={ Search } />
           <Route exact path="/trybetunes/album/:id" component={ Album } />
           <Route exact path="/trybetunes/favorites" component={ Favorites } />
