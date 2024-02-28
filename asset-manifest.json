@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.d6c6df51.css",
-    "main.js": "/static/js/main.d8b966c3.js",
-    "static/media/login-bg.png": "/static/media/login-bg.d1b3b1316bd80f5e2b33.png",
-    "static/media/bgAlbum.png": "/static/media/bgAlbum.b8f5eb3b0dbd55211b19.png",
-    "static/media/bgFavorites.png": "/static/media/bgFavorites.8cc7065fc752262abee7.png",
-    "static/media/bgSearch.png": "/static/media/bgSearch.a5715c58330edad36d09.png",
-    "static/media/emptyUserPhoto.webp": "/static/media/emptyUserPhoto.efadb13dba95b5bc918b.webp",
-    "index.html": "/index.html",
-    "main.d6c6df51.css.map": "/static/css/main.d6c6df51.css.map",
-    "main.d8b966c3.js.map": "/static/js/main.d8b966c3.js.map"
+    "main.css": "/trybetunes/static/css/main.1e476e4c.css",
+    "main.js": "/trybetunes/static/js/main.af745e58.js",
+    "static/media/login-bg.png": "/trybetunes/static/media/login-bg.d1b3b1316bd80f5e2b33.png",
+    "static/media/bgAlbum.png": "/trybetunes/static/media/bgAlbum.b8f5eb3b0dbd55211b19.png",
+    "static/media/bgFavorites.png": "/trybetunes/static/media/bgFavorites.8cc7065fc752262abee7.png",
+    "static/media/bgSearch.png": "/trybetunes/static/media/bgSearch.a5715c58330edad36d09.png",
+    "static/media/emptyUserPhoto.webp": "/trybetunes/static/media/emptyUserPhoto.efadb13dba95b5bc918b.webp",
+    "index.html": "/trybetunes/index.html",
+    "main.1e476e4c.css.map": "/trybetunes/static/css/main.1e476e4c.css.map",
+    "main.af745e58.js.map": "/trybetunes/static/js/main.af745e58.js.map"
   },
   "entrypoints": [
-    "static/css/main.d6c6df51.css",
-    "static/js/main.d8b966c3.js"
+    "static/css/main.1e476e4c.css",
+    "static/js/main.af745e58.js"
   ]
 }
