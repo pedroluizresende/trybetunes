@@ -13,6 +13,12 @@ Este repositório contém o projeto TrybeTunes, desenvolvido como parte do módu
 - **Lista de músicas favoritas**: Exibe a lista de músicas favoritas do usuário.
 - **Visualização e edição de perfil**: Permite ao usuário visualizar e editar seu perfil na aplicação.
 
+### Telas
+
+
+
+
+
 ## Habilidades Demonstradas
 
 - Requisições e consumo de dados de uma API.
