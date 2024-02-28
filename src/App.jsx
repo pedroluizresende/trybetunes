@@ -19,7 +19,7 @@ class App extends React.Component {
           <Route exact path="/trybetunes/album/:id" component={ Album } />
           <Route exact path="/trybetunes/favorites" component={ Favorites } />
           <Route exact path="/trybetunes/profile" component={ Profile } />
-          <Route exact path="/trybetunes/profile/edit" component={ ProfileEdit } />
+          <Route exact path="/tribetunes/profile/edit" component={ ProfileEdit } />
           <NotFound />
 
         </Switch>
