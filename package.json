@@ -3,7 +3,8 @@
   "version": "1.0.1",
   "private": true,
   "engines": {
-    "node": "16"
+    "node": "16",
+    "homepage": "https://pedroluizresende.github.io/"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
