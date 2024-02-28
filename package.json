@@ -3,9 +3,9 @@
   "version": "1.0.1",
   "private": true,
   "engines": {
-    "node": "16",
-    "homepage": "https://pedroluizresende.github.io/"
+    "node": "16"
   },
+  "homepage": "https://trybe-tunes.github.io/trybetunes",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
