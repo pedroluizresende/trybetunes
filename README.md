@@ -1,6 +1,6 @@
 # TrybeTunes
 
-Este repositório contém o projeto TrybeTunes, desenvolvido como parte do módulo de frontend do curso de Desenvolvimento Web da [Trybe](https://www.betrybe.com/). O TrybeTunes é uma aplicação web capaz de reproduzir músicas de diversas bandas e artistas, permitindo ao usuário fazer login, pesquisar por artistas, listar álbuns, reproduzir prévias de músicas, favoritar músicas, visualizar músicas favoritas e editar o perfil do usuário.
+Este repositório contém o projeto [TrybeTunes](https://pedroluizresende.github.io/trybetunes/), desenvolvido como parte do módulo de frontend do curso de Desenvolvimento Web da [Trybe](https://www.betrybe.com/). O TrybeTunes é uma aplicação web capaz de reproduzir músicas de diversas bandas e artistas, permitindo ao usuário fazer login, pesquisar por artistas, listar álbuns, reproduzir prévias de músicas, favoritar músicas, visualizar músicas favoritas e editar o perfil do usuário.
 
 ## Funcionalidades
 
