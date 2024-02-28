@@ -186,7 +186,7 @@ class ProfileEdit extends Component {
               header={ false }
               textColor="rgba(192, 195, 201, 1)"
             /> : editForm }
-            { isSalved && <Redirect to="/profile" />}
+            { isSalved && <Redirect to="/trybetunes/profile" />}
           </section>
 
         </section>

@@ -78,7 +78,7 @@ class Login extends Component {
           P
         /> : form }
         {
-          redirectToSearch && <Redirect to="/search" />
+          redirectToSearch && <Redirect to="/trybetunes/search" />
         }
       </div>
     );
