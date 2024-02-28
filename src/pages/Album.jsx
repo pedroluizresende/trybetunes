@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Header from './Header';
+import Header from '../components/Header';
 import getMusics from '../services/musicsAPI';
 import Loading from './Loading';
 import MusicCard from '../components/MusicCard';
 import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
+import styles from './Album.module.css';
 
 class Album extends Component {
   state = {
@@ -12,6 +13,7 @@ class Album extends Component {
     albumInfo: {},
     requestIsDone: true,
     favoriteSongs: [],
+    isLoading: false,
   };
 
   componentDidMount() {
@@ -33,6 +35,7 @@ class Album extends Component {
   fetchMusics = async () => {
     this.setState({
       requestIsDone: false,
+      isLoading: true,
     });
     const {
       match: {
@@ -44,16 +47,18 @@ class Album extends Component {
     this.setState({
       albumInfo: allInfos[0],
       musics: albumMusics,
+      isLoading: false,
     });
   };
 
-  clickChange = async ({ target }) => {
+  clickChange = async (trackId, isFavorite) => {
     const { musics } = this.state;
-    const song = musics.find((music) => music.trackId === (+target.name));
+    const song = musics.find((music) => music.trackId === trackId);
+    console.log(song);
     this.setState({
       requestIsDone: false,
     });
-    if (target.checked) {
+    if (!isFavorite) {
       await addSong(song);
       const favoriteSongs = await getFavoriteSongs();
       this.setState({
@@ -71,40 +76,56 @@ class Album extends Component {
   };
 
   render() {
-    const { albumInfo, musics, requestIsDone, favoriteSongs } = this.state;
-    const albumInfos = (
-      <section className="album-content">
-        <section className="album-info">
-          <img src={ albumInfo.artworkUrl100 } alt="" />
-          <h1 data-testid="album-name">{ albumInfo.collectionName }</h1>
-          <h2 data-testid="artist-name">{ albumInfo.artistName }</h2>
-        </section>
-        <ul>
-          {
-            musics.map((music) => (
-              <MusicCard
-                key={ music.trackId }
-                music={ music }
-                clickChange={ this.clickChange }
-                favoriteSongs={ favoriteSongs }
-                favorite={ favoriteSongs
-                  .some((song) => song.trackId === music.trackId) }
-              />
-            ))
-          }
-        </ul>
-      </section>
-    );
+    const { albumInfo, musics, requestIsDone, favoriteSongs, isLoading } = this.state;
+
     return (
 
-      <div data-testid="page-album" className="album">
+      <main data-testid="page-album" className={ styles.container }>
+
         <Header />
-        {
-          !requestIsDone
-            ? <Loading />
-            : albumInfos
-        }
-      </div>
+        <main className={ styles.album }>
+          <header>
+            {
+              !isLoading
+               && (
+                 <>
+                   <img src={ albumInfo.artworkUrl100 } alt="capa" />
+                   <div>
+                     <h1>
+                       { albumInfo.collectionName }
+                     </h1>
+                     <h2>{albumInfo.artistName}</h2>
+                   </div>
+                 </>
+               )
+            }
+          </header>
+          <section className={ styles.musics }>
+
+            { !requestIsDone && <Loading
+              header={ false }
+              textColor="rgba(192, 195, 201, 1)"
+            /> }
+            { requestIsDone
+            && (
+              <ul>
+                {
+                  musics.map((music) => (
+                    <MusicCard
+                      key={ music.trackId }
+                      music={ music }
+                      clickChange={ this.clickChange }
+                      favoriteSongs={ favoriteSongs }
+                      favorite={ favoriteSongs
+                        .some((song) => song.trackId === music.trackId) }
+                    />
+                  ))
+                }
+              </ul>
+            )}
+          </section>
+        </main>
+      </main>
 
     );
   }

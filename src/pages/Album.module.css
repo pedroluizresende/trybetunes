@@ -1,0 +1,71 @@
+.container {
+  background-color: #eff3f9;
+  background-image: url('../images//bgAlbum.png');
+  background-size: cover;
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+.album {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.album header {
+  align-items: flex-end;
+  box-sizing: border-box;
+  display: flex;
+  height: 234px;
+  position: relative;
+}
+
+.album header img {
+  border-radius: 12px;
+  box-shadow: -9px 8px 8px 0 rgba(68, 73, 85, 0.2);
+  height: 240px;
+  margin: 0 40px 0 60px;
+  position: relative;
+  top: 111px;
+  width: 240px;
+}
+
+.album div {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  height: 52.2px;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  top: 153px;
+  width: 218.4px;
+
+  h1 {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
+  }
+
+  h2 {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+  }
+}
+
+.musics {
+  align-items: center;
+  background-color: #eff3f9;
+  box-sizing: border-box;
+  display: flex;
+  height: calc(100% - 234px);
+  justify-content: center;
+  padding: 60px 60px 60px 340px;
+  width: 100%;
+}
+
+.musics ul {
+  height: 100%;
+  overflow-y: auto;
+  width: 100%;
+}

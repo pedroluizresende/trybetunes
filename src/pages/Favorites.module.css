@@ -1,0 +1,39 @@
+.container {
+  background-image: url('../images/bgFavorites.png');
+  background-size: cover;
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+.favorites {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.favorites header {
+  align-items: center;
+  box-sizing: border-box;
+  color: white;
+  display: flex;
+  font-size: 20px;
+  font-weight: 700;
+  height: 234px;
+  justify-content: center;
+  line-height: 21px;
+  width: 100%;
+}
+
+.favoritesSection {
+  background-color: #eff3f9;
+  box-sizing: border-box;
+  height: calc(100vh - 234px);
+  padding: 80px 160px;
+}
+
+.favorites ul {
+  height: 100%;
+  overflow-y: auto;
+}

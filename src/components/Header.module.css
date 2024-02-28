@@ -1,0 +1,61 @@
+.header {
+  align-items: center;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-height: 100vh;
+  max-width: 250px;
+  min-width: 250px;
+  padding: 20px;
+}
+
+.headerLogo {
+  align-self: center;
+  height: 95.71px;
+  width: 170.81px;
+}
+
+.userName {
+  align-items: center;
+  color: rgba(68, 73, 85, 1);
+  display: flex;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  width: 170.81px;
+}
+
+.userName svg {
+  height: 40px;
+  margin-right: 10px;
+  width: 40px;
+}
+
+
+.header nav {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  width: 170.81px;
+}
+
+.header nav a {
+  color: rgba(68, 73, 85, 1);
+  display: flex;
+  letter-spacing: 0.03em;
+  line-height: 16px;
+  text-align: left;
+  text-decoration: none;
+  width: 100%;
+
+  svg {
+    margin-right: 10px;
+    width: 23px;
+  }
+}
+
+.active {
+  font-weight: 700;
+}

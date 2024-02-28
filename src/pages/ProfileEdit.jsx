@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import Header from './Header';
+import Header from '../components/Header';
 import { getUser, updateUser } from '../services/userAPI';
 import Loading from './Loading';
+import styles from './ProfileEdit.module.css';
+import emptyUserPhoto from '../images/emptyUserPhoto.webp';
 
 class ProfileEdit extends Component {
   state = {
@@ -74,6 +76,7 @@ class ProfileEdit extends Component {
   };
 
   handleChange = ({ target }) => {
+    console.log(target.value);
     const { name, value } = target;
     this.setState({
       [name]: value,
@@ -83,77 +86,111 @@ class ProfileEdit extends Component {
   };
 
   render() {
-    const {
-      userName,
-      userEmail,
-      userImage,
-      userDescription,
-      requestIsDone,
-      isDisableButton,
-      isSalved,
+    const { userName, userEmail, userImage, userDescription, requestIsDone,
+      isDisableButton, isSalved,
     } = this.state;
     const editForm = (
       <form>
-        <label htmlFor="userName">
-          Nome:
-          <input
-            name="userName"
-            id="userName"
-            type="name"
-            data-testid="edit-input-name"
-            value={ userName }
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="userEmail">
-          Email:
-          <input
-            type="email"
-            name="userEmail"
-            id="userEmail"
-            data-testid="edit-input-email"
-            value={ userEmail }
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="userDescription">
-          Descrição:
-          <textarea
-            name="userDescription"
-            id="userDescription"
-            data-testid="edit-input-description"
-            value={ userDescription }
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="userImage">
-          Foto de Perfil:
-          <input
-            type="text"
-            name="userImage"
-            id="username"
-            data-testid="edit-input-image"
-            value={ userImage }
-            onChange={ this.handleChange }
-          />
-        </label>
-        <button
-          type="button"
-          data-testid="edit-button-save"
-          disabled={ isDisableButton }
-          onClick={ this.salverUser }
-        >
-          Salvar
-        </button>
+        <div className={ styles.imageSection }>
+          {
+            userImage === ''
+              ? (
+                <img
+                  className={ styles.userImage }
+                  src={ emptyUserPhoto }
+                  alt="Foto de Perfil"
+                />
+              ) : (
+                <img
+                  className={ styles.userImage }
+                  src={ userImage }
+                  alt="Foto de Perfil"
+                />
+              )
+          }
+          <label htmlFor="userImage">
+            <input
+              className={ styles.imageInput }
+              type="text"
+              name="userImage"
+              placeholder="Insira um link"
+              id="username"
+              data-testid="edit-input-image"
+              value={ userImage }
+              alt="Foto de Perfil"
+              onChange={ this.handleChange }
+            />
+          </label>
+        </div>
+        <div className={ styles.textFields }>
+          <label htmlFor="userName">
+            Nome:
+            <span>Fique à vontade para usar seu nome social</span>
+            <input
+              name="userName"
+              id="userName"
+              type="name"
+              data-testid="edit-input-name"
+              value={ userName }
+              onChange={ this.handleChange }
+              placeholder="Nome"
+            />
+          </label>
+          <label htmlFor="userEmail">
+            Email:
+            <span>Escolha um e-mail que consulte diariamente</span>
+            <input
+              type="email"
+              name="userEmail"
+              id="userEmail"
+              data-testid="edit-input-email"
+              value={ userEmail }
+              onChange={ this.handleChange }
+              placeholder="Email"
+            />
+          </label>
+          <label htmlFor="userDescription">
+            Descrição:
+            <textarea
+              name="userDescription"
+              id="userDescription"
+              data-testid="edit-input-description"
+              value={ userDescription }
+              onChange={ this.handleChange }
+              placeholder="Sobre mim"
+            />
+          </label>
+          <button
+            type="button"
+            data-testid="edit-button-save"
+            disabled={ isDisableButton }
+            onClick={ this.salverUser }
+          >
+            Salvar
+          </button>
+        </div>
       </form>
     );
 
     return (
-      <div data-testid="page-profile-edit" className="profile-edit">
+      <main data-testid="page-profile-edit" className={ styles.container }>
         <Header />
-        { !requestIsDone ? <Loading /> : editForm }
-        { isSalved && <Redirect to="/profile" />}
-      </div>
+
+        <section className={ styles.profileEdit }>
+
+          <div className={ styles.banner } />
+
+          <section className={ styles.editSection }>
+
+            { !requestIsDone ? <Loading
+              header={ false }
+              textColor="rgba(192, 195, 201, 1)"
+            /> : editForm }
+            { isSalved && <Redirect to="/profile" />}
+          </section>
+
+        </section>
+      </main>
     );
   }
 }

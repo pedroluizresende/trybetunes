@@ -1,0 +1,78 @@
+.container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+.search {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.searchForm {
+  align-items: center;
+  background-image: url('../images/bgSearch.png');
+  background-size: cover;
+  box-sizing: border-box;
+  display: flex;
+  height: 234px;
+  justify-content: center;
+  width: 100%;
+}
+
+.searchForm button {
+  background-color: rgb(0, 213, 226, 1);
+  border: none;
+  border-radius: 23px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  height: 40px;
+  letter-spacing: 0.03em;
+  line-height: 14px;
+  text-transform: uppercase;
+  width: 114px;
+
+}
+
+.searchForm button:hover {
+  background-color: rgb(0, 213, 226, 0.8);
+}
+
+.searchForm button:active {
+  background-color: rgb(0, 213, 226, 0.6);
+}
+
+.searchForm button:disabled {
+  background-color: rgb(0, 213, 226, 0.6);
+  cursor: not-allowed;
+}
+
+.searchForm input {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  border-radius: 23px;
+  color: white;
+  font-size: 14px;
+  height: 40px;
+  letter-spacing: 0.03em;
+  margin-right: 10px;
+  outline: none;
+  padding: 0 20px;
+  text-transform: uppercase;
+  width: 360px;
+}
+
+.searchForm input::placeholder {
+  color: white;
+}
+
+.albumsSection {
+  background-color: rgba(239, 243, 249, 1);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 234px);
+  width: 100%;
+}

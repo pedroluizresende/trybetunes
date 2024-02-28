@@ -1,0 +1,81 @@
+.container {
+  background-image: url('../images/bgFavorites.png');
+  background-size: cover;
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+.perfil {
+  align-items: center;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+}
+
+.perfil header {
+  height: 234px;
+  position: relative;
+}
+
+.userPhoto {
+  border-radius: 240px;
+  box-shadow: -9px 8px 8px 0 rgba(0, 0, 0, 0.2);
+  height: 240px;
+  left: 60px;
+  position: relative;
+  top: 111px;
+  width: 240px;
+}
+
+.profileInfos {
+  background-color: #eff3f9;
+  display: flex;
+  height: calc(100% - 234px);
+}
+
+.infos {
+  display: flex;
+  flex-direction: column;
+  margin: 40px 300px 40px 340px;
+  width: 100%;
+}
+
+.infos h3 {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+
+}
+
+.infos div p {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  margin-bottom: 40px;
+}
+
+.infos a {
+  align-items: center;
+  background-color: rgba(0, 59, 229, 1);
+  border-radius: 100px;
+  color: white;
+  display: flex;
+  font-size: 14px;
+  font-weight: 700;
+  height: 40px;
+  justify-content: center;
+  letter-spacing: 0.03em;
+  line-height: 14px;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 152px;
+}
+
+.infos a:hover {
+  background-color: rgba(0, 59, 229, 0.8);
+}
+
+.infos a:active {
+  background-color: rgba(0, 59, 229, 0.6);
+}

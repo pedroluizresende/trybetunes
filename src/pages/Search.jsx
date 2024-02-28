@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
-import Header from './Header';
+import Header from '../components/Header';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
-import CardAlbum from '../components/CardAlbum';
+import styles from './Search.module.css';
+import Loading from './Loading';
+import AlbumsList from '../components/AlbumsList';
 
 class Search extends Component {
   state = {
     isDisabledButtton: true,
     searchInput: '',
-    albuns: [],
+    albums: [],
     artistName: '',
+    isLoading: false,
   };
 
   handleChangle = ({ target }) => {
@@ -28,59 +31,61 @@ class Search extends Component {
     });
   };
 
-  searching = async () => {
+  searching = async (e) => {
+    e.preventDefault();
     const { searchInput } = this.state;
     this.setState({
       searchInput: '',
-      albuns: [],
+      albums: [],
       artistName: searchInput,
+      isLoading: true,
     });
     const fetchAlbuns = await searchAlbumsAPI(searchInput);
     this.setState({
-      albuns: fetchAlbuns,
+      albums: fetchAlbuns,
+      isLoading: false,
     });
   };
 
   render() {
-    const { isDisabledButtton, searchInput, albuns, artistName } = this.state;
+    const { isDisabledButtton, searchInput, albums, artistName, isLoading } = this.state;
     return (
-      <div data-testid="page-search" className="search">
+      <div data-testid="page-search" className={ styles.container }>
         <Header />
-        <form>
-          <input
-            type="text"
-            data-testid="search-artist-input"
-            name="searchInput"
-            value={ searchInput }
-            onChange={ this.handleChangle }
-          />
-          <button
-            type="button"
-            data-testid="search-artist-button"
-            disabled={ isDisabledButtton }
-            onClick={ this.searching }
+        <main className={ styles.search }>
+          <form
+            className={ styles.searchForm }
+            onSubmit={ (event) => this.searching(event) }
           >
-            Pesquisar
-          </button>
-        </form>
-        <section>
-          <h2>{ `Resultado de álbuns de: ${artistName}`}</h2>
-        </section>
-        <ul className="albuns-list">
-          {
-            albuns.length === 0
-              ? <p>Nenhum álbum foi encontrado</p>
-              : albuns.map((album) => (
-                <CardAlbum
-                  key={ album.collectionId }
-                  albumImg={ album.artworkUrl100 }
-                  albumName={ album.collectionName }
-                  artistName={ album.artistName }
-                  collectionId={ album.collectionId }
-                />
-              ))
-          }
-        </ul>
+            <input
+              type="text"
+              data-testid="search-artist-input"
+              name="searchInput"
+              value={ searchInput }
+              onChange={ this.handleChangle }
+              placeholder="digite a sua pesquisa"
+            />
+            <button
+              type="submit"
+              data-testid="search-artist-button"
+              disabled={ isDisabledButtton }
+            >
+              Pesquisar
+            </button>
+          </form>
+          <section className={ styles.albumsSection }>
+            {
+              isLoading
+                ? <Loading header={ false } textColor="rgba(192, 195, 201, 1)" />
+                : (
+                  <AlbumsList
+                    albums={ albums }
+                    artistName={ artistName }
+                  />
+                )
+            }
+          </section>
+        </main>
       </div>
     );
   }

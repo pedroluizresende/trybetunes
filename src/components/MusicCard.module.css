@@ -1,0 +1,38 @@
+.card {
+  align-items: center;
+  border-bottom: 0.85px solid rgba(204, 212, 225, 1);
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  width: 100%;
+}
+
+label p {
+  display: none;
+}
+
+.card p {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 182px;
+}
+
+.audio {
+  border-radius: 42.39px;
+  height: 55.95px;
+  width: 371.3px;
+}
+
+.favoriteButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  height: 20px;
+  margin-right: 10px;
+  outline: none;
+  width: 20px;
+}

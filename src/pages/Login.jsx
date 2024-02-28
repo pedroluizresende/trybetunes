@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { createUser } from '../services/userAPI';
 import Loading from './Loading';
 import logo from '../images/logo.png';
+import styles from './Login.module.css';
 
 class Login extends Component {
   state = {
@@ -44,7 +45,7 @@ class Login extends Component {
   render() {
     const { inputName, buttonIsDisabled, isLoading, redirectToSearch } = this.state;
     const form = (
-      <div data-testid="page-login" className="login">
+      <main data-testid="page-login" className={ styles.login }>
         <img src={ logo } alt="logo trybeTunes" />
         <form>
           <label htmlFor="name">
@@ -66,12 +67,16 @@ class Login extends Component {
             Entrar
           </button>
         </form>
-      </div>
+      </main>
     );
 
     return (
       <div className="login-page">
-        { isLoading ? <Loading /> : form }
+        { isLoading ? <Loading
+          header={ false }
+          textColor="rgb(0, 59, 229, 1)"
+          P
+        /> : form }
         {
           redirectToSearch && <Redirect to="/search" />
         }

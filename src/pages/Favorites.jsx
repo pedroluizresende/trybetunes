@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import Header from './Header';
+import Header from '../components/Header';
 import { getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 import Loading from './Loading';
 import MusicCard from '../components/MusicCard';
+import styles from './Favorites.module.css';
 
 class Favorites extends Component {
   state = {
@@ -58,10 +59,21 @@ class Favorites extends Component {
       </ul>
     );
     return (
-      <div data-testid="page-favorites" className="favorites">
+      <main data-testid="page-favorites" className={ styles.container }>
         <Header />
-        {!requestIsDone ? <Loading /> : favoriteList }
-      </div>
+        <section className={ styles.favorites }>
+          <header>
+            <h1>Músicas Favoritas</h1>
+          </header>
+
+          <section className={ styles.favoritesSection }>
+            {!requestIsDone ? <Loading
+              header={ false }
+              textColor="rgba(192, 195, 201, 1)"
+            /> : favoriteList }
+          </section>
+        </section>
+      </main>
     );
   }
 }

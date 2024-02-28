@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import styles from './MusicCard.module.css';
+import fillHeart from '../images/filled-heart.png';
+import emptyHeart from '../images/empty-heart.png';
 
 class MusicCard extends Component {
   state = {
@@ -29,27 +32,33 @@ class MusicCard extends Component {
       trackId,
     } = music;
     return (
-      <div className="music-card">
+      <li className={ styles.card }>
         <p>{ trackName }</p>
-        <audio data-testid="audio-component" src={ previewUrl } controls>
+        <audio
+          className={ styles.audio }
+          data-testid="audio-component"
+          src={ previewUrl }
+          controls
+        >
           <track kind="captions" />
           O seu navegador não suporta o elemento
           {' '}
           <code>audio</code>
           .
         </audio>
-        <label htmlFor="checkbox-music">
-          <input
-            id="checkbox-music"
-            name={ trackId }
-            type="checkbox"
-            data-testid={ `checkbox-music-${trackId}` }
-            onChange={ clickChange }
-            checked={ isFavorite }
-          />
-          Favorita
-        </label>
-      </div>
+
+        <button
+          type="button"
+          className={ styles.favoriteButton }
+          onClick={ () => clickChange(Number(trackId), isFavorite) }
+        >
+          {
+            isFavorite
+              ? <img src={ fillHeart } alt="Coração preenchido" />
+              : <img src={ emptyHeart } alt="Coração vazio" />
+          }
+        </button>
+      </li>
     );
   }
 }
