@@ -13,9 +13,31 @@ Este repositório contém o projeto [TrybeTunes](https://pedroluizresende.github
 - **Lista de músicas favoritas**: Exibe a lista de músicas favoritas do usuário.
 - **Visualização e edição de perfil**: Permite ao usuário visualizar e editar seu perfil na aplicação.
 
-### Telas
+## Telas
 
+<details>
+  <summary>Clique para ver as Telas</summary>
+  
+  ### Tela de Login
+  ![Tela de Login](prints/print-login.png)
 
+  ### Tela de Pesquisa
+  ![ Tela Search](prints/print-search.png)
+  ![ Tela Search](prints/print-albums.png)
+
+  ### Tela Album 
+  ![Tela Album](prints/print-album-detail.png) 
+
+  ### Tela de Favoritos  
+   ![Tela de Favoritos](prints/print-favorites.png)
+
+  ### Tela de Perfil
+  ![Tela de Perfil](prints/print-profile.png)
+
+  ### Tela de Edição do Perfil
+  ![Tela de Edição do Perfil](prints/print-profile-edit.png)
+
+</details>
 
 
 
